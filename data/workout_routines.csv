@@ -1,0 +1,4 @@
+routineId,userId,routineName,exerciseName,sets,reps,duration,restTime
+ROUTINE-f2b21579-1e02-4c95-aafa-b98286e5952e,USER-DEMO,test,Push-ups,1,0,60,30
+ROUTINE-ce4d151c-b227-4558-8743-8d3ba182dc48,USER-DEMO,My Workout,Sit-ups,1,0,60,30
+ROUTINE-ce4d151c-b227-4558-8743-8d3ba182dc48,USER-DEMO,My Workout,Plank,1,0,60,30

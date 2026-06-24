@@ -1,0 +1,105 @@
+=== FitFlow Integration and Regression Test Runner ===
+Date: 2026-06-21
+Focus: service routing, validation, sessions, repository-backed routine/history saves, and current-user profile loading
+
+TC-AUTH-03 to TC-AUTH-08: Signup validation and duplicate protection
+PASS - Short username is rejected
+PASS - Short username returns validation code
+PASS - Short password is rejected
+PASS - Short password returns validation code
+PASS - Invalid email is rejected
+PASS - Invalid email returns validation code
+PASS - Valid signup creates an account
+PASS - Valid signup returns a user ID
+PASS - Duplicate username is rejected
+PASS - Duplicate username returns auth code
+
+TC-AUTH-09, TC-AUTH-10, TC-INT-01, TC-INT-04: Signin, logout, and session behavior
+PASS - Valid demo signin succeeds
+PASS - Signin returns a session token
+PASS - Valid session loads starter workouts
+PASS - Starter library contains five exercises
+PASS - Logout succeeds for active session
+PASS - Logged-out session cannot load workouts
+PASS - Logged-out session returns session error
+
+BUG-03, TC-RB-06, TC-INT-05: Routine save and reload regression
+PASS - Helper signin succeeds
+PASS - Helper signin returns session token
+PASS - Blank routine name is rejected
+PASS - Blank routine name returns validation code
+PASS - Routine with no exercises is rejected
+PASS - No-exercise routine returns validation code
+Workout routine saved to CSV.
+Workout routine saved to CSV.
+Workout routine saved to CSV.
+PASS - Routine save succeeds with name and selected exercises
+PASS - Routine save returns true
+PASS - Saved routines reload succeeds
+PASS - Saved routine list includes Morning Starter
+PASS - Saved routine list includes selected exercise
+PASS - Helper signin succeeds
+PASS - Helper signin returns session token
+PASS - Repository-backed routine reload succeeds after facade restart
+PASS - CSV routine reload still includes Morning Starter
+PASS - CSV routine reload still includes selected exercise
+
+TC-RB-09 and guided workout regression: builder values are preserved
+PASS - Helper signin succeeds
+PASS - Helper signin returns session token
+Workout routine saved to CSV.
+Workout routine saved to CSV.
+PASS - Detailed routine save succeeds
+PASS - Detailed guided workout starts
+PASS - First exercise keeps edited sets
+PASS - First exercise keeps edited reps
+PASS - First exercise keeps edited rest
+PASS - Second exercise keeps edited sets
+PASS - Second exercise keeps edited reps
+PASS - Second exercise keeps edited rest
+
+TC-PROF-03, TC-PROF-04, profile save regression
+PASS - Helper signin succeeds
+PASS - Helper signin returns session token
+PASS - Incomplete profile is rejected
+PASS - Incomplete profile returns validation code
+PASS - Profile with invalid height is rejected
+PASS - Invalid height profile returns validation code
+PASS - Profile save with fake session is rejected
+PASS - Fake session profile save returns session code
+Profile saved to CSV.
+PASS - Valid profile save succeeds
+PASS - Valid profile save returns true
+PASS - Current user profile load succeeds
+PASS - Loaded profile belongs to demo user
+PASS - Loaded profile uses saved first name
+PASS - Loaded profile is not hardcoded John Smith
+PASS - Helper signin succeeds
+PASS - Helper signin returns session token
+PASS - Repository-backed profile load succeeds after facade restart
+PASS - Persisted profile keeps saved first name
+
+TC-CALC, TC-HIST, TC-SEC-01: Integration regression checks
+PASS - Helper signin succeeds
+PASS - Helper signin returns session token
+PASS - Invalid calorie duration is rejected
+PASS - Valid calorie calculation succeeds
+PASS - Calories calculation returns expected estimate
+Workout history saved to CSV.
+PASS - Workout history save succeeds
+PASS - Workout history save returns true
+PASS - Workout history reload succeeds
+PASS - Workout history contains saved summary
+PASS - Helper signin succeeds
+PASS - Helper signin returns session token
+PASS - Repository-backed workout history reload succeeds after facade restart
+PASS - CSV history reload contains saved summary
+PASS - Recommendation request succeeds
+PASS - Strength recommendation includes a workout suggestion
+PASS - Stored password value is hashed length
+PASS - Stored password value is not raw text
+
+
+=== Final Test Summary ===
+Passed checks: 78
+Failed checks: 0
